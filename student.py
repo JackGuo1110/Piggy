@@ -59,18 +59,32 @@ class Piggy(PiggyParent):
     def Jack(self):
       self.fwd(360)
       time.sleep(1)
+      self.stop()
+
       self.right(primary=44, counter=-40)
       time.sleep(1)
+      self.stop()
+
       self.fwd(360)
       time.sleep(1)
+      self.stop()
+
       self.right(primary=44, counter=-40)
       time.sleep(1)
+      self.stop()
+
       self.fwd(360)
       time.sleep(1)
+      self.stop()
+
       self.right(primary=44, counter=-40)
       time.sleep(1)
+      self.stop()
+
       self.fwd(360)
       time.sleep(1)
+      self.stop()
+      
       self.right(primary=44, counter=-40)
       time.sleep(1)
       self.stop()
