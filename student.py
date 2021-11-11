@@ -56,7 +56,15 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    def Jack(self):
+
+    def jack(self):
+      square()
+
+
+
+
+
+    def square(self):
       self.fwd()
       time.sleep(1)
       self.stop()
@@ -98,7 +106,7 @@ class Piggy(PiggyParent):
         
         # lower-ordered example...
         self.fwd()
-        time.sleep(1)
+        time.sleep(1)   
         self.stop()
 
         self.left(primary=55, counter=-40)
