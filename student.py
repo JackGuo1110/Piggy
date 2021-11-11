@@ -58,7 +58,7 @@ class Piggy(PiggyParent):
     '''
 
     def jack(self):
-      square()
+      self.square()
 
 
 
