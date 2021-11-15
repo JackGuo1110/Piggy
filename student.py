@@ -58,7 +58,11 @@ class Piggy(PiggyParent):
     '''
 
     def jack(self):
-      self.square()
+      self.read_distance()
+
+    # def self.
+
+
 
 
 
