@@ -59,8 +59,13 @@ class Piggy(PiggyParent):
 
     def jack(self):
       
+
       while True:
-        self.read_distance()
+        if self.read_distance()< 100:
+          self.stop()
+        else:
+          self.fwd()
+
 
 
 
