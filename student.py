@@ -60,26 +60,55 @@ class Piggy(PiggyParent):
     def jack(self):
       while True:
         if self.read_distance() < 100:
-          self.right(primary=55, counter=-40)
-          time.sleep(1)
-          self.fwd()
-          time.sleep(2)
-          self.left(primary=40, counter=-55)
-          time.sleep(1)
-          self.fwd()
-          time.sleep(3)
           self.stop()
-          self.left(primary=40, counter=-55)
-          time.sleep(1)
-          self.fwd()
-          time.sleep(2)
-          self.right(primary=55, counter=-40)
-          time.sleep(1)
-          self.fwd()
-          time.sleep(2)
-          self.stop()
-        else:
-          self.fwd()
+          self.servo(1200)
+          left = self.read_distance()
+          self.servo(1800)
+          right = read_distance()
+          
+          
+          if(left > right):
+            self.right(primary=55, counter=-40)
+            time.sleep(1)
+            self.fwd()
+            time.sleep(2)
+            self.left(primary=40, counter=-55)
+            time.sleep(1)
+            self.fwd()
+            time.sleep(3)
+            self.stop()
+            self.left(primary=40, counter=-55)
+            time.sleep(1)
+            self.fwd()
+            time.sleep(2)
+            self.right(primary=55, counter=-40)
+            time.sleep(1)
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+
+            if(right > left):
+              self.right(primary=55, counter=-40)
+              time.sleep(1)
+              self.fwd()
+              time.sleep(2)
+              self.left(primary=40, counter=-55)
+              time.sleep(1)
+              self.fwd()
+              time.sleep(3)
+              self.stop()
+              self.left(primary=40, counter=-55)
+              time.sleep(1)
+              self.fwd()
+              time.sleep(2)
+              self.right(primary=55, counter=-40)
+              time.sleep(1)
+              self.fwd()
+              time.sleep(2)
+              self.stop()
+
+          else:
+            self.fwd()
 
 
 
