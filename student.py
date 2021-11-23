@@ -60,6 +60,7 @@ class Piggy(PiggyParent):
     def jack(self):
       while True:
         if (self.read_distance() < 300):
+          self.stop()
           self.servo(1200)
           left = self.read_distance()
           self.sleep(1)
