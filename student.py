@@ -60,23 +60,24 @@ class Piggy(PiggyParent):
     def jack(self):
       while True:
         if (self.read_distance() < 300):
+          right = self.read_distance()
           self.stop()
           self.servo(1200)
           left = self.read_distance()
           self.stop()
           self.servo(1800)
-          right = self.read_distance()
           
+          #right = self.read_distance()
           
           if(left > right):
             self.right(primary=60, counter=-40)
             time.sleep(1)
             self.fwd()
             time.sleep(2)
-            self.left(primary=40, counter=-60)
+            self.left(primary=-40, counter=60)
             time.sleep(1)
             self.fwd()
-            time.sleep(3)
+            time.sleep(2)
             self.stop()
             self.right(primary=60, counter=-40)
             time.sleep(1)
@@ -96,13 +97,13 @@ class Piggy(PiggyParent):
               self.right(primary=60, counter=-40)
               time.sleep(1)
               self.fwd()
-              time.sleep(3)
+              time.sleep(2)
               self.stop()
               self.left(primary=40, counter=-60)
               time.sleep(1)
               self.fwd()
               time.sleep(2)
-              self.right(primary=60, counter=-40)
+              self.left(primary=-40, counter=60)
               time.sleep(1)
               self.fwd()
               time.sleep(2)
@@ -111,7 +112,6 @@ class Piggy(PiggyParent):
         else:
           self.fwd()
             
-
 
 
 
