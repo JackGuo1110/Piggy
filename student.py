@@ -58,42 +58,69 @@ class Piggy(PiggyParent):
     '''
 
     def jack(self):
-  
-      while True:                                     #This makes it run forever
-        if (self.read_distance() > (300 + back)):              #Is there a wall (No)
-          self.fwd()                                  #Move forward] 
-          time.sleep(1)                               #Move forward]
-          self.stop()                                 #Move forward]
-        elif (self.read_distance() < (299 + back)):            #Is there a wall (Yes)
-            self.servo(800)                           #Looking right]
-            time.sleep(1)                             #Looking right]
-            self.stop()                               #Looking right]
-            right = self.read_distance()              #Setting right length to a variable
-            self.servo(2000)                          #Looking left]
-            time.sleep(1)                             #Looking left]
-            self.stop()                               #Looking left]
-            left = self.read_distance()               #Setting left length to a variable
-            self.servo(1400)                          #Looking straight]
-            time.sleep(1)                             #Looking straight]
-            self.stop()                               #Looking straight]
-            if (abs(right - left) > 100):
-              if (right > left):                        #Is the right side shorter (Yes)
-                self.servo(1400)                        #Looking straight]
-                time.sleep(1)                           #Looking straight]
-                self.stop()                             #Looking straight]
-                self.wall_avoid()                       #Running Wall Avoid
-              elif (left > right):                      #Is the left side shorter (Yes)
-                self.servo(1400)                        #Looking straight]
-                time.sleep(1)                           #Looking straight]
-                self.stop()                             #Looking straight]
-                self.wall_avoid_left()                  #Running Wall Avoid Left
-            else:
-              self.back()
-              time.sleep(2)
-              self.stop()
-              back += 100
+      while True:                                    
+        if (self.read_distance() > 300):              
+          self.fwd()                                  
+          time.sleep(1)                               
+          self.stop()                                 
+        elif (self.read_distance() < 299):            
+            self.servo(800)                           
+            time.sleep(1)                             
+            self.stop()                               
+            right = self.read_distance()              
+            self.servo(2000)                        
+            time.sleep(1)                            
+            self.stop()                            
+            left = self.read_distance()              
+            self.servo(1400)              
+            time.sleep(1)                       
+            self.stop()                               
+            if (right > left):                        
+              self.servo(1400)
+              time.sleep(1)                         
+              self.stop()                   
+              self.wall_avoid()                    
+            elif (left > right):                     
+              self.servo(1400)       
+              time.sleep(1)                          
+              self.stop()                    
+              self.wall_avoid_left()
 
+      def wall_avoid(self):
+        self.fwd()
+        time.sleep(1)
+        self.right(primary=50, counter=-40)
+        time.sleep(1)
+        self.fwd()
+        time.sleep(2)
+        self.stop()
+        self.left(primary=-40, counter=50)
+        time.sleep(1)
+        self.fwd()
+        time.sleep(2)
+        self.left(primary=-40, counter=50)
+        time.sleep(1)
+        self.fwd()
+        time.sleep(2)
+        self.stop()
 
+      def wall_avoid_left(self):
+        self.fwd()
+        time.sleep(1)
+        self.left(primary=-40, counter=50)
+        time.sleep(1)
+        self.fwd()
+        time.sleep(2)
+        self.stop()
+        self.right(primary=50, counter=-40)
+        time.sleep(1)
+        self.fwd()
+        time.sleep(2)
+        self.right(primary=50, counter=-40)
+        time.sleep(1)
+        self.fwd()
+        time.sleep(2)
+        self.stop()
 
 
 
