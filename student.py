@@ -75,7 +75,7 @@ class Piggy(PiggyParent):
         time.sleep(2)
         self.stop()
 
-      def turn_left(self):
+    def turn_left(self):
         self.fwd()
         time.sleep(1)
         self.left(primary=-40, counter=50)
