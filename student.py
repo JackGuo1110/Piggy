@@ -58,16 +58,14 @@ class Piggy(PiggyParent):
     '''
 
     def jack(self):
-      while True:
-        def round(self):
-          self.wall_stoping_distance = 200
+      wall_stoping_distance = 200
       while True:
         if (self.read_distance() < wall_stoping_distance):
           self.stop()
           self.servo(1200)
           time.sleep(0.5)
           right = self.read_distance()
-          self.servo(2000)
+          self.servo(1800)
           time.sleep(0.5)
           left = self.read_distance()
             
