@@ -57,36 +57,7 @@ class Piggy(PiggyParent):
     ****************
     '''
 
-    def jack(self):
-      while True:                                    
-        if (self.read_distance() > 300):              
-          self.fwd()                                  
-          time.sleep(1)                               
-          self.stop()                                 
-        elif (self.read_distance() < 299):            
-            self.servo(800)                           
-            time.sleep(1)                             
-            self.stop()                               
-            right = self.read_distance()              
-            self.servo(2000)                        
-            time.sleep(1)                            
-            self.stop()                            
-            left = self.read_distance()              
-            self.servo(1400)              
-            time.sleep(1)                       
-            self.stop()                               
-            if (right > left):                        
-              self.servo(1400)
-              time.sleep(1)                         
-              self.stop()                   
-              self.wall_avoid()                    
-            elif (left > right):                     
-              self.servo(1400)       
-              time.sleep(1)                          
-              self.stop()                    
-              self.wall_avoid_left()
-
-      def wall_avoid(self):
+    def wall_avoid(self):
         self.fwd()
         time.sleep(1)
         self.right(primary=50, counter=-40)
@@ -123,6 +94,39 @@ class Piggy(PiggyParent):
         self.stop()
 
 
+
+
+
+
+
+    def jack(self):
+      while True:                                    
+        if (self.read_distance() > 300):              
+          self.fwd()                                  
+          time.sleep(1)                               
+          self.stop()                                 
+        elif (self.read_distance() < 299):            
+            self.servo(800)                           
+            time.sleep(1)                             
+            self.stop()                               
+            right = self.read_distance()              
+            self.servo(2000)                        
+            time.sleep(1)                            
+            self.stop()                            
+            left = self.read_distance()              
+            self.servo(1400)              
+            time.sleep(1)                       
+            self.stop()                               
+            if (right > left):                        
+              self.servo(1400)
+              time.sleep(1)                         
+              self.stop()                   
+              self.wall_avoid()                    
+            elif (left > right):                     
+              self.servo(1400)       
+              time.sleep(1)                          
+              self.stop()                    
+              self.wall_avoid_left()
 
 
 
