@@ -57,7 +57,7 @@ class Piggy(PiggyParent):
     ****************
     '''
 
-    def wall_avoid(self):
+    def turn_right(self):
         self.fwd()
         time.sleep(1)
         self.right(primary=50, counter=-40)
@@ -75,7 +75,7 @@ class Piggy(PiggyParent):
         time.sleep(2)
         self.stop()
 
-      def wall_avoid_left(self):
+      def turn_left(self):
         self.fwd()
         time.sleep(1)
         self.left(primary=-40, counter=50)
@@ -121,12 +121,12 @@ class Piggy(PiggyParent):
               self.servo(1400)
               time.sleep(1)                         
               self.stop()                   
-              self.wall_avoid()                    
+              self.turn_right()                    
             elif (left > right):                     
               self.servo(1400)       
               time.sleep(1)                          
               self.stop()                    
-              self.wall_avoid_left()
+              self.turn_left()
 
 
 
