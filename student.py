@@ -59,6 +59,55 @@ class Piggy(PiggyParent):
 
     def jack(self):
       while True:
+        def round(self):
+      wall_stoping_distance = 200
+      while True:
+        if (self.read_distance() < wall_stoping_distance):
+          self.stop()
+          self.servo(1200)
+          time.sleep(0.5)
+          right = self.read_distance()
+          self.servo(2000)
+          time.sleep(0.5)
+          left = self.read_distance()
+            
+          if(left > right):
+            self.left(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.right(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+
+          if(right > left):
+            self.right(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.left(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+          
+        else:
+          self.servo(self.MIDPOINT)
+          self.fwd()
+
+
+
+
+
+
+
+
+
+
+
+        """"
         if (self.read_distance() < 500):
           right = self.read_distance()
           self.stop()
@@ -74,7 +123,7 @@ class Piggy(PiggyParent):
             time.sleep(1)
             self.fwd()
             time.sleep(1)
-            self.left(primary=-40, counter=650)
+            self.left(primary=-40, counter=50)
             time.sleep(1)
             self.fwd()
             time.sleep(2)
@@ -90,7 +139,7 @@ class Piggy(PiggyParent):
             self.stop()
 
             if(right > left):
-              self.left(primary=40, counter=-50)
+              self.left(primary=-40, counter=50)
               time.sleep(1)
               self.fwd()
               time.sleep(1)
@@ -99,7 +148,7 @@ class Piggy(PiggyParent):
               self.fwd()
               time.sleep(2)
               self.stop()
-              self.left(primary=40, counter=-50)
+              self.left(primary=-40, counter=50)
               time.sleep(1)
               self.fwd()
               time.sleep(2)
@@ -111,7 +160,7 @@ class Piggy(PiggyParent):
 
         else:
           self.fwd()
-            
+        """"
 
 
 
