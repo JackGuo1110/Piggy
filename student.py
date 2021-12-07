@@ -58,42 +58,41 @@ class Piggy(PiggyParent):
     '''
 
     def jack(self):
-      wall_stoping_distance = 200
-      while True:
-        if (self.read_distance() < wall_stoping_distance):
-          self.stop()
-          self.servo(1200)
-          time.sleep(0.5)
-          right = self.read_distance()
-          self.servo(1800)
-          time.sleep(0.5)
-          left = self.read_distance()
-            
-          if(left > right):
-            self.left(primary=30, counter=-40)
-            time.sleep(2)
-            self.stop()
-            self.fwd()
-            time.sleep(2)
-            self.stop()
-            self.right(primary=30, counter=-40)
-            time.sleep(2)
-            self.stop()
+  
+      while True:                                     #This makes it run forever
+        if (self.read_distance() > (300 + back)):              #Is there a wall (No)
+          self.fwd()                                  #Move forward] 
+          time.sleep(1)                               #Move forward]
+          self.stop()                                 #Move forward]
+        elif (self.read_distance() < (299 + back)):            #Is there a wall (Yes)
+            self.servo(800)                           #Looking right]
+            time.sleep(1)                             #Looking right]
+            self.stop()                               #Looking right]
+            right = self.read_distance()              #Setting right length to a variable
+            self.servo(2000)                          #Looking left]
+            time.sleep(1)                             #Looking left]
+            self.stop()                               #Looking left]
+            left = self.read_distance()               #Setting left length to a variable
+            self.servo(1400)                          #Looking straight]
+            time.sleep(1)                             #Looking straight]
+            self.stop()                               #Looking straight]
+            if (abs(right - left) > 100):
+              if (right > left):                        #Is the right side shorter (Yes)
+                self.servo(1400)                        #Looking straight]
+                time.sleep(1)                           #Looking straight]
+                self.stop()                             #Looking straight]
+                self.wall_avoid()                       #Running Wall Avoid
+              elif (left > right):                      #Is the left side shorter (Yes)
+                self.servo(1400)                        #Looking straight]
+                time.sleep(1)                           #Looking straight]
+                self.stop()                             #Looking straight]
+                self.wall_avoid_left()                  #Running Wall Avoid Left
+            else:
+              self.back()
+              time.sleep(2)
+              self.stop()
+              back += 100
 
-          if(right > left):
-            self.right(primary=30, counter=-40)
-            time.sleep(2)
-            self.stop()
-            self.fwd()
-            time.sleep(2)
-            self.stop()
-            self.left(primary=30, counter=-40)
-            time.sleep(2)
-            self.stop()
-          
-        else:
-          self.servo(self.MIDPOINT)
-          self.fwd()
 
 
 
