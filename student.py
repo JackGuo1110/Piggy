@@ -96,7 +96,8 @@ class Piggy(PiggyParent):
 
 
     def jack(self):
-      while True:                                    
+      while True:
+        self.servo(self.MIDPOINT)                              
         if (self.read_distance() > 300):              
           self.fwd()                                  
           time.sleep(1)                               
