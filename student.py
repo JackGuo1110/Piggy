@@ -58,8 +58,6 @@ class Piggy(PiggyParent):
     '''
 
     def turn_right(self):
-        self.fwd()
-        time.sleep(1)
         self.right(primary=50, counter=-40)
         time.sleep(1)
         self.fwd()
@@ -76,8 +74,6 @@ class Piggy(PiggyParent):
         self.stop()
 
     def turn_left(self):
-        self.fwd()
-        time.sleep(1)
         self.left(primary=-40, counter=50)
         time.sleep(1)
         self.fwd()
@@ -105,12 +101,12 @@ class Piggy(PiggyParent):
           self.fwd()                                  
           time.sleep(1)                               
           self.stop()                                 
-        elif (self.read_distance() < 299):            
+        elif (self.read_distance() < 300):            
             self.servo(800)                           
             time.sleep(1)                             
             self.stop()                               
             right = self.read_distance()              
-            self.servo(2000)                        
+            self.servo(1400)                        
             time.sleep(1)                            
             self.stop()                            
             left = self.read_distance()              
