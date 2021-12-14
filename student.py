@@ -103,27 +103,27 @@ class Piggy(PiggyParent):
           time.sleep(1)                               
           self.stop()                                 
         elif (self.read_distance() < 300):            
-            self.servo(800)                           
+            self.servo(600)                           
             time.sleep(1)                             
             self.stop()                               
             right = self.read_distance()              
-            self.servo(1400)                        
+            self.servo(1200)                        
             time.sleep(1)                            
             self.stop()                            
             left = self.read_distance()              
-            self.servo(1400)              
+            self.servo(1800)              
             time.sleep(1)                       
             self.stop()                               
             if (right > left):                        
               self.servo(1400)
               time.sleep(1)                         
               self.stop()                   
-              self.turn_right()                    
+              self.turn_left()                    
             elif (left > right):                     
               self.servo(1400)       
               time.sleep(1)                          
               self.stop()                    
-              self.turn_left()
+              self.turn_right()
 
 
 
