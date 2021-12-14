@@ -97,7 +97,7 @@ class Piggy(PiggyParent):
 
 
 
-""""
+      """
         if (self.read_distance() < 500):
           right = self.read_distance()
           self.stop()
@@ -150,10 +150,10 @@ class Piggy(PiggyParent):
 
         else:
           self.fwd()
-        """
+      """
 
 
-""""
+
     def square(self):
       self.fwd()
       time.sleep(1)
@@ -179,9 +179,6 @@ class Piggy(PiggyParent):
       self.right(primary=55, counter=-40)
       time.sleep(1)
       self.stop()
-
-      
-
 
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
