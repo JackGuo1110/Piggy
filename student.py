@@ -94,11 +94,7 @@ class Piggy(PiggyParent):
           self.turn_right()                    
         elif (left > right):                                     
           self.turn_left()
-
-
-
-      """
-        if (self.read_distance() < 500):
+        elif center < 200:
           right = self.read_distance()
           self.stop()
           self.servo(1200)
@@ -147,10 +143,6 @@ class Piggy(PiggyParent):
               self.fwd()
               time.sleep(2)
               self.stop()
-
-        else:
-          self.fwd()
-      """
 
 
 
