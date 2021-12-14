@@ -153,7 +153,7 @@ class Piggy(PiggyParent):
     def scan(self):
       while True:
         self.fwd()
-
+        
         self.servo(self.MIDPOINT)
         time.sleep(1)             
         center = self.read_distance()
