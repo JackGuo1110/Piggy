@@ -83,6 +83,7 @@ class Piggy(PiggyParent):
         time.sleep(.1)             
         center = self.read_distance()
 
+
         self.servo(self.MIDPOINT - 400)                           
         time.sleep(.1)                                                           
         right = self.read_distance()    
@@ -90,6 +91,7 @@ class Piggy(PiggyParent):
         self.servo(self.MIDPOINT + 400)                        
         time.sleep(.1)                                                      
         left = self.read_distance()                                                         
+
         if (right > left):                                           
           self.turn_right()     
 
@@ -111,7 +113,7 @@ class Piggy(PiggyParent):
             time.sleep(1)
             self.fwd()
             time.sleep(1)
-            self.left(primary=-40, counter=50)
+            self.left(primary=50, counter=-40)
             time.sleep(1)
             self.fwd()
             time.sleep(2)
@@ -145,6 +147,42 @@ class Piggy(PiggyParent):
               self.fwd()
               time.sleep(2)
               self.stop()
+
+
+    def scan(self):
+      while True:
+        self.fwd()
+
+        self.servo(self.MIDPOINT)
+        time.sleep(.1)             
+        center = self.read_distance()
+        if(self.read_distance()<200):
+            self.right(primary=50, counter=-40)
+            time.sleep(1)
+            self.stop()
+            self.fwd()
+            time.sleep(1)
+            self.stop()
+            self.left(primary=50, counter=-40)
+            time.sleep(1)
+            self.stop()
+
+        self.servo(self.MIDPOINT - 400)                           
+        time.sleep(.1)                                                           
+        right = self.read_distance()
+        if(self.read_distance()<200):
+            self.left(primary=50, counter=40)
+            time.sleep(1)
+            self.stop()
+
+        self.servo(self.MIDPOINT + 400)                        
+        time.sleep(.1)                                                      
+        left = self.read_distance()
+        if(self.read_distance()<200):
+            self.right(primary=50, counter=40)
+            time.sleep(1)
+            self.stop()
+
 
 
 
