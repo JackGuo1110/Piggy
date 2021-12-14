@@ -58,29 +58,17 @@ class Piggy(PiggyParent):
     '''
 
     def turn_right(self):
-        self.right(primary=50, counter=-40)
+        self.right(primary=50, counter=30)
         time.sleep(1)
-        self.fwd()
-        time.sleep(2)
-        self.stop()
-        self.left(primary=50, counter=-40)
+        self.left(primary=50, counter=30)
         time.sleep(1)
-        self.fwd()
-        time.sleep(2)
-        self.stop()
+
 
     def turn_left(self):
-        self.left(primary=50, counter=-40)
+        self.left(primary=50, counter=30)
         time.sleep(1)
-        self.fwd()
-        time.sleep(2)
-        self.stop()
-        self.right(primary=50, counter=-40)
+        self.right(primary=50, counter=30)
         time.sleep(1)
-        self.fwd()
-        time.sleep(2)
-        self.stop()
-
 
 
 
@@ -89,39 +77,27 @@ class Piggy(PiggyParent):
 
     def jack(self):
       while True:
+        self.fwd()
+
         self.servo(self.MIDPOINT)
-        time.sleep(1)                             
-        self.stop()                               
+        time.sleep(.1)             
+        midpoint = self.read_distance()
+
         self.servo(self.MIDPOINT - 400)                           
-        time.sleep(1)                             
-        self.stop()                               
-        right = self.read_distance()              
+        time.sleep(.1)                                                           
+        right = self.read_distance()    
+
         self.servo(self.MIDPOINT + 400)                        
-        time.sleep(1)                            
-        self.stop()                            
-        left = self.read_distance()              
-        self.servo(self.MIDPOINT)              
-        time.sleep(1)                       
-        self.stop()                               
-        if (right > left):                        
-          self.servo(self.MIDPOINT)
-          time.sleep(1)                         
-          self.stop()                   
-          self.turn_left()                    
-        elif (left > right):                     
-          self.servo(self.MIDPOINT)       
-          time.sleep(1)                          
-          self.stop()                    
-          self.turn_right()
+        time.sleep(.1)                                                      
+        left = self.read_distance()                                                         
+        if (right > left):                                           
+          self.turn_right()                    
+        elif (left > right):                                     
+          self.turn_left()
 
 
 
-
-
-
-
-
-        """"
+""""
         if (self.read_distance() < 500):
           right = self.read_distance()
           self.stop()
