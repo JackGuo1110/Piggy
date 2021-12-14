@@ -155,7 +155,7 @@ class Piggy(PiggyParent):
         self.fwd()
 
         self.servo(self.MIDPOINT)
-        time.sleep(.1)             
+        time.sleep(1)             
         center = self.read_distance()
         if(self.read_distance()<200):
             self.right(primary=50, counter=-40)
@@ -169,7 +169,7 @@ class Piggy(PiggyParent):
             self.stop()
 
         self.servo(self.MIDPOINT - 400)                           
-        time.sleep(.1)                                                           
+        time.sleep(1)                                                           
         right = self.read_distance()
         if(self.read_distance()<200):
             self.left(primary=50, counter=40)
@@ -177,7 +177,7 @@ class Piggy(PiggyParent):
             self.stop()
 
         self.servo(self.MIDPOINT + 400)                        
-        time.sleep(.1)                                                      
+        time.sleep(1)                                                      
         left = self.read_distance()
         if(self.read_distance()<200):
             self.right(primary=50, counter=40)
